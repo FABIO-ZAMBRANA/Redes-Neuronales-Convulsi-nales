@@ -16,7 +16,16 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    
+     <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <style>
       #resultado {
         font-weight:  bold;
@@ -46,6 +55,12 @@
         <li><a href="index.html">Inicio</a></li>
       
         <li><a href="https://wa.me/+59177891272">Contacto</a></li>
+        <li>
+          <!-- Icono QR y enlace para mostrar la imagen QR -->
+          <a href="#" id="qr-link">
+            <i class="ri-qr-code-line"></i> QR
+          </a>
+        </li>
       </ul>
       
     </nav>
@@ -85,7 +100,22 @@
       <div class="b-example-divider mb-0"></div>
     </main>
 
-  
+      
+    <script>
+      // Mostrar el QR en un modal al hacer clic en el enlace QR
+      const qrLink = document.getElementById('qr-link');
+      const qrModal = document.getElementById('qr-modal');
+      const closeQrModal = document.getElementById('close-qr-modal');
+    
+      qrLink.addEventListener('click', function (event) {
+        event.preventDefault();  // Evita que el enlace se siga
+        qrModal.style.display = 'flex';  // Muestra el modal
+      });
+    
+      closeQrModal.addEventListener('click', function () {
+        qrModal.style.display = 'none';  // Cierra el modal
+      });
+    </script>
       <script src="https://unpkg.com/scrollreveal"></script>
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
       <script src="main.js"></script>
