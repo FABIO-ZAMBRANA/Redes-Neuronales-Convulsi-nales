@@ -111,7 +111,7 @@
 
       (async () => {
           console.log("Cargando modelo...");
-          modelo = await tf.loadLayersModel("model.json");
+          const model = await tf.loadLayersModel('./model.json');
           console.log("Modelo cargado...");
       })();
 
