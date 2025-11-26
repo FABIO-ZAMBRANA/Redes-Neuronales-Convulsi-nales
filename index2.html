@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Perros y Gatos</title>
- <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
- <link
+    <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
       rel="stylesheet"
     />
@@ -17,7 +16,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="styles.css" />
+    
     <style>
       #resultado {
         font-weight:  bold;
@@ -33,7 +32,7 @@
 
   </head>
   <body>
-     <nav>
+      <nav>
       <div class="nav__header">
         <div class="logo nav__logo">
           <img src="img/descarga (1).png" alt="header" />
@@ -45,10 +44,10 @@
       </div>
       <ul class="nav__links" id="nav-links">
         <li><a href="index.html">Inicio</a></li>
-  
+      
         <li><a href="https://wa.me/+59177891272">Contacto</a></li>
       </ul>
-     
+      
     </nav>
     <main>
       <div class="px-4 py-2 my-2 text-center border-bottom">
@@ -57,7 +56,7 @@
 
         <h1 class="display-5 fw-bold">Perros y gatos</h1>
         <div class="col-lg-6 mx-auto">
-          <p class="lead mb-0">Clasificaci&oacute;n de imágenes (Perro o Gato) usando la c&aacute;mara web utilizando Tensorflow.js</p>
+          <p class="lead mb-0">Clasificaci&oacute;n de im&aacute;genes (Perro o Gato) usando la c&aacute;mara web utilizando Tensorflow.js</p>
         </div>
       </div>
 
@@ -70,14 +69,14 @@
             <button class="btn btn-primary mb-2" id="cambiar-camara" onclick="cambiarCamara();">Cambiar camara</button>
             <canvas id="canvas" width="400" height="400" style="max-width: 100%;"></canvas>
             <canvas id="othercanvas" width="150" height="150" style="display: none"></canvas>
-            <div id="resultado"></div>            
+            <div id="resultado"></div>         
           </div>
         </div>
       </div>
 
       <div class="b-example-divider"></div>
 
-     
+      
         <div class="footer__bar">
           Copyright © 2024 IngSistemas - Fabio Andres Zambrana. Todos los Derechos Reservados.
         </div>
@@ -98,24 +97,27 @@
 
     <script type="text/javascript">
 
-      //Tomar y configurar el canvas
+      // Tomar y configurar el canvas
       var canvas = document.getElementById("canvas");
       var video = document.getElementById("video");
       var ctx = canvas.getContext("2d");
-      var modelo = null;
+      var modelo = null; // Variable global para el modelo
       var size = 400;
       var camaras = [];
 
       var currentStream = null;
       var facingMode = "user"; //Para que funcione con el celular (user/environment)
 
-      (async () => {
+      // FUNCIÓN CORREGIDA: Carga el modelo y lo asigna a la variable global 'modelo'
+      async function cargarModelo() {
           console.log("Cargando modelo...");
-          const model = await tf.loadLayersModel('./model.json');
+          // RUTA CORREGIDA a './model.json' para solucionar el 404
+          modelo = await tf.loadLayersModel('./model.json'); 
           console.log("Modelo cargado...");
-      })();
+      }
 
       window.onload = function() {
+          cargarModelo(); // Llama a la carga del modelo al iniciar
           mostrarCamara();
       }
 
@@ -174,7 +176,8 @@
       }
 
       function predecir() {
-          if (modelo != null) {
+          // Si 'modelo' es diferente de null, significa que ya se cargó correctamente
+          if (modelo != null) { 
               //Pasar canvas a version 150x150
               resample_single(canvas, 150, 150, othercanvas);
 
@@ -218,14 +221,13 @@
       }
 
       /**
-       * Hermite resize - fast image resize/resample using Hermite filter. 1 cpu version!
-       * 
-       * @param {HtmlElement} canvas
-       * @param {int} width
-       * @param {int} height
-       * @param {boolean} resize_canvas if true, canvas will be resized. Optional.
-       * Cambiado por RT, resize canvas ahora es donde se pone el chiqitillllllo
-       */
+      * Hermite resize - fast image resize/resample using Hermite filter. 1 cpu version!
+      * * @param {HtmlElement} canvas
+      * @param {int} width
+      * @param {int} height
+      * @param {boolean} resize_canvas if true, canvas will be resized. Optional.
+      * Cambiado por RT, resize canvas ahora es donde se pone el chiqitillllo
+      */
       function resample_single(canvas, width, height, resize_canvas) {
           var width_source = canvas.width;
           var height_source = canvas.height;
@@ -299,5 +301,3 @@
     </script>
   </body>
 </html>
-
-
