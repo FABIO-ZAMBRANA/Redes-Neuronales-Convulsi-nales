@@ -97,7 +97,7 @@
         </div>
        <div id="qr-modal" style="display: none;">
         <div class="qr-container">
-          <img src="img/mi_Qr_con_texto_grande.png" alt="QR Code" />
+          <img src="img/mi_Qr_con_texto_grande_REDESNeuronales.png" alt="QR Code" />
           <button id="close-qr-modal">Cerrar</button>
         </div>
       </div>
@@ -107,7 +107,15 @@
     </main>
 
       
-    <script>
+      <script src="https://unpkg.com/scrollreveal"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script src="main.js"></script>
+      <script src="script.js"></script>  
+      <script src="all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+      <script>
       // Mostrar el QR en un modal al hacer clic en el enlace QR
       const qrLink = document.getElementById('qr-link');
       const qrModal = document.getElementById('qr-modal');
@@ -122,15 +130,6 @@
         qrModal.style.display = 'none';  // Cierra el modal
       });
     </script>
-      <script src="https://unpkg.com/scrollreveal"></script>
-      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-      <script src="main.js"></script>
-      <script src="script.js"></script>  
-      <script src="all.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
-
     <script type="text/javascript">
 
       // Tomar y configurar el canvas
