@@ -120,9 +120,10 @@ function TyperSetup() {
   for (var i = 0, e; e = elements2[i++];) {
     let t = new Cursor(e);
     t.owner = typers[e.dataset.owner];
-    t.owner.cursor = t;
+    if (t.owner) {
+      t.owner.cursor = t;
+    }
   }
 }
 
 TyperSetup();
- 
