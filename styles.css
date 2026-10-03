@@ -623,6 +623,35 @@ nav {
 
   .header__image {
     grid-area: 1/2/2/3;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+    border-radius: 0 2rem 2rem 0;
+  }
+
+  .header__image img {
+    width: 100%;
+    min-height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0 2rem 2rem 0;
+    box-shadow: none;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.2) 14%,
+      rgba(0, 0, 0, 0.85) 40%,
+      #000 58%,
+      #000 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.2) 14%,
+      rgba(0, 0, 0, 0.85) 40%,
+      #000 58%,
+      #000 100%
+    );
   }
 
   .special__grid {
