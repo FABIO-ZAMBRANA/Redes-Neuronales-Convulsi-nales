@@ -13,7 +13,7 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=visionia-20261003-2" />
   </head>
   <body class="detector-page">
     <nav aria-label="Navegación principal">
@@ -134,10 +134,17 @@
 
     <div id="qr-modal" role="dialog" aria-modal="true" aria-label="Código QR" style="display: none;">
       <div class="qr-container">
-        <span class="qr-container__eyebrow">Comparte VisiónIA</span>
-        <h2>Lleva el detector contigo</h2>
-        <p>Escanea, guarda el código QR o comparte el enlace del proyecto.</p>
-        <img src="img/visionia-qr.png" alt="Código QR para abrir VisiónIA" />
+        <button class="qr-close" id="close-qr-modal" type="button" aria-label="Cerrar">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="qr-brand-mark" aria-hidden="true">VI</div>
+        <span class="qr-container__eyebrow">VisiónIA</span>
+        <h2>Comparte el detector</h2>
+        <p>Abre la cámara de tu celular para escanearlo o comparte el acceso directo.</p>
+        <div class="qr-code-frame">
+          <img src="img/visionia-qr.png" alt="Código QR para abrir VisiónIA" />
+          <span><i class="ri-smartphone-line" aria-hidden="true"></i> Escanea para abrir</span>
+        </div>
         <div class="qr-actions">
           <a class="qr-button qr-button--primary" href="img/visionia-qr.png" download="VisionIA-QR.png">
             <i class="ri-download-2-line" aria-hidden="true"></i> Guardar QR
@@ -147,13 +154,12 @@
           </button>
         </div>
         <p class="share-feedback" id="share-feedback" aria-live="polite"></p>
-        <button class="qr-close" id="close-qr-modal" type="button">Cerrar</button>
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=visionia-20261003-2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js"></script>
-    <script src="detector.js"></script>
+    <script src="detector.js?v=visionia-20261003-2"></script>
   </body>
 </html>

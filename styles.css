@@ -472,12 +472,12 @@ nav {
 
 .client__card img {
   margin-bottom: 1rem;
-  width: 112px;
-  height: 112px;
+  width: 124px;
+  height: 124px;
   margin-inline: auto;
-  border-radius: 100%;
+  border-radius: 26px;
   object-fit: cover;
-  object-position: center 28%;
+  object-position: center 24%;
   border: 4px solid #ffffff;
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
 }
@@ -717,50 +717,91 @@ nav {
   }
   #qr-modal {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
+    z-index: 1000;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
+    padding: 1rem;
+    background: rgba(2, 6, 23, 0.72);
+    backdrop-filter: blur(12px);
     align-items: center;
+    justify-content: center;
   }
   .qr-container {
-    background: white;
-    width: min(92vw, 440px);
-    max-height: 92vh;
+    position: relative;
+    width: min(94vw, 410px);
+    max-height: min(94vh, 760px);
     overflow-y: auto;
-    padding: clamp(1.25rem, 5vw, 2rem);
+    padding: clamp(1.5rem, 5vw, 2rem);
     text-align: center;
-    border-radius: 24px;
-    box-shadow: 0 28px 70px rgba(15, 23, 42, 0.35);
-  }
-  #qr-modal img {
-    width: min(100%, 270px);
-    margin: 1.1rem auto;
-    border: 1px solid var(--border);
-    border-radius: 18px;
+    background:
+      radial-gradient(circle at 50% 0, rgba(14, 165, 233, 0.13), transparent 13rem),
+      #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    box-shadow: 0 32px 90px rgba(2, 6, 23, 0.45);
   }
   #qr-link {
     cursor: pointer;
   }
+  .qr-brand-mark {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 0.8rem;
+    color: #ffffff;
+    background: linear-gradient(145deg, #0ea5e9, #075985);
+    border-radius: 18px;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    box-shadow: 0 12px 24px rgba(3, 105, 161, 0.25);
+  }
   .qr-container__eyebrow {
     color: var(--primary-color);
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 800;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
   }
   .qr-container h2 {
-    margin-top: 0.35rem;
+    margin-top: 0.3rem;
     color: var(--text-dark);
-    font-size: clamp(1.45rem, 6vw, 2rem);
+    font-size: clamp(1.55rem, 6vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
   }
   .qr-container > p {
-    margin-top: 0.5rem;
+    max-width: 320px;
+    margin: 0.55rem auto 0;
     color: var(--text-light);
+    font-size: 0.92rem;
     line-height: 1.5;
+  }
+  .qr-code-frame {
+    width: min(100%, 258px);
+    margin: 1.15rem auto;
+    padding: 0.75rem 0.75rem 0.6rem;
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 22px;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.09);
+  }
+  #qr-modal .qr-code-frame img {
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-radius: 14px;
+  }
+  .qr-code-frame span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+    color: #64748b;
+    font-size: 0.76rem;
+    font-weight: 700;
   }
   .qr-actions {
     display: grid;
@@ -778,8 +819,15 @@ nav {
     border: 1px solid #cbd5e1;
     border-radius: 12px;
     font: inherit;
+    font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .qr-button:hover {
+    transform: translateY(-1px);
+    border-color: #7dd3fc;
+    box-shadow: 0 9px 20px rgba(15, 23, 42, 0.1);
   }
   .qr-button--primary {
     color: #ffffff;
@@ -788,19 +836,33 @@ nav {
   }
   .share-feedback {
     min-height: 1.3rem;
+    margin-top: 0.45rem !important;
     color: #047857 !important;
     font-size: 0.82rem;
     font-weight: 700;
   }
   .qr-close {
-    margin-top: 0.25rem;
-    padding: 0.45rem 0.8rem;
-    color: var(--text-light);
-    background: transparent;
-    border: 0;
-    font: inherit;
-    font-weight: 700;
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    color: #475569;
+    background: rgba(241, 245, 249, 0.9);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1.7rem;
+    line-height: 1;
     cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .qr-close:hover {
+    color: #0f172a;
+    background: #e2e8f0;
+    transform: rotate(4deg);
   }
   @media (min-width: 440px) {
     .qr-actions {
