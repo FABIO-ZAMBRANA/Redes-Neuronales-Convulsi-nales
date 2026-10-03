@@ -13,15 +13,16 @@
     />
     <link rel="stylesheet" href="styles.css" />
  
-    <title>CNN</title>
+    <meta name="description" content="VisiónIA detecta personas, perros y gatos en tiempo real desde el navegador." />
+    <title>VisiónIA | Detección inteligente</title>
   </head>
   <body>
     <nav>
 
       <div class="nav__header">
         <div class="logo nav__logo">
-          <img src="img/descarga (1).png" alt="header" />
-          <a href="#"> Ing<span>Sis </span></a>
+          <img src="img/descarga (1).png" alt="Logo de VisiónIA" />
+          <a href="#">Visión<span>IA</span></a>
         </div>
         <div class="nav__menu__btn" id="menu-btn" role="button" tabindex="0" aria-label="Abrir menú" aria-expanded="false">
           <span><i class="ri-menu-line"></i></span>
@@ -37,7 +38,7 @@
         <li>
           <!-- Icono QR y enlace para mostrar la imagen QR -->
           <a href="#" id="qr-link">
-            <i class="ri-qr-code-line"></i> QR
+            <i class="ri-share-line"></i> Compartir proyecto
           </a>
         </li>
       </ul>
@@ -48,7 +49,7 @@
         <img src="img/ciberseguiridad2.jpg" alt="header" />
       </div>
       <div class="header__content">
-        <h1>Red<span class="typer" id="hero-typer" data-delay="500" data-delim=":" data-words="Neuronal:Convolucional" data-colors="orange,blue,green"></span><span class="cursor" data-cursorDisplay="_" data-owner="hero-typer"></span></h1>
+        <h1>Visión<span class="typer" id="hero-typer" data-delay="500" data-delim=":" data-words="IA: Inteligente" data-colors="orange,blue,green"></span><span class="cursor" data-cursorDisplay="_" data-owner="hero-typer"></span></h1>
         <p class="section__description">
             Detección automática mediante redes neuronales convolucionales. El modelo reconoce personas, perros y gatos en tiempo real usando TensorFlow.js.
         </p>
@@ -189,10 +190,10 @@
             <div class="swiper-slide">
               <div class="client__card">
                 <p>
-                  Nuestro equipo destaca por su compromiso y profesionalismo. Cada uno de nosotros aporta habilidades únicas que se complementan perfectamente, logrando que cada proyecto sea un éxito.
+                  VisiónIA une inteligencia artificial y desarrollo web para ofrecer una experiencia accesible, privada y fácil de usar desde cualquier dispositivo.
                 </p>
-                <img src="img/348444499_982721643081749_2717602465102784231_n.ico" alt="client" />
-                <h4>Redes Neuronales </h4>
+                <img src="img/fabio-andres-zambrana.png" alt="Fabio Andres Zambrana" />
+                <h4>Fabio Andres Zambrana</h4>
                 <h5>Universidad Aquino Bolivia</h5>
               </div>
             </div>
@@ -207,7 +208,7 @@
       <div class="section__container footer__container">
         <div class="footer__col">
           <div class="logo footer__logo">
-            <a href="#">Redes<span class="typer" id="footer-typer" data-delay="500" data-delim=":" data-words="Neuronales:Convolucionales" data-colors="orange,blue,green"></span><span class="cursor" data-cursorDisplay="_" data-owner="footer-typer"></span></a>
+            <a href="#">Visión<span>IA</span></a>
           </div>
           <p class="section__description">
             Clasifica imágenes de manera inteligente. Aprende cómo las redes neuronales convolucionales distinguen objetos.” 
@@ -237,12 +238,24 @@
       
       </div>
       <div class="footer__bar">
-        Copyright © 2024 IngSistemas - Fabio Andres Zambrana. Todos los Derechos Reservados.
+        Copyright © 2026 VisiónIA · Fabio Andres Zambrana. Todos los derechos reservados.
       </div>
       <div id="qr-modal" role="dialog" aria-modal="true" aria-label="Código QR" style="display: none;">
         <div class="qr-container">
-          <img src="img/mi_Qr_con_texto_grande_REDESNeuronales.png" alt="QR Code" />
-          <button id="close-qr-modal">Cerrar</button>
+          <span class="qr-container__eyebrow">Comparte VisiónIA</span>
+          <h2>Lleva el detector contigo</h2>
+          <p>Escanea, guarda el código QR o comparte el enlace del proyecto.</p>
+          <img src="img/visionia-qr.png" alt="Código QR para abrir VisiónIA" />
+          <div class="qr-actions">
+            <a class="qr-button qr-button--primary" href="img/visionia-qr.png" download="VisionIA-QR.png">
+              <i class="ri-download-2-line" aria-hidden="true"></i> Guardar QR
+            </a>
+            <button class="qr-button" id="share-link" type="button">
+              <i class="ri-share-forward-line" aria-hidden="true"></i> Compartir enlace
+            </button>
+          </div>
+          <p class="share-feedback" id="share-feedback" aria-live="polite"></p>
+          <button class="qr-close" id="close-qr-modal" type="button">Cerrar</button>
         </div>
       </div>
     </footer>

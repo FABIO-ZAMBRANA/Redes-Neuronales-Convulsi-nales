@@ -24,6 +24,8 @@ if (menuButton && navigationLinks) {
 const qrLink = document.getElementById("qr-link");
 const qrModal = document.getElementById("qr-modal");
 const closeQrModal = document.getElementById("close-qr-modal");
+const shareLinkButton = document.getElementById("share-link");
+const shareFeedback = document.getElementById("share-feedback");
 
 if (qrLink && qrModal && closeQrModal) {
   const closeModal = () => {
@@ -41,6 +43,39 @@ if (qrLink && qrModal && closeQrModal) {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeModal();
   });
+
+  if (shareLinkButton) {
+    shareLinkButton.addEventListener("click", async () => {
+      const shareUrl = "https://fabio-zambrana.github.io/Redes-Neuronales-Convulsi-nales/";
+      const shareData = {
+        title: "VisiónIA",
+        text: "Prueba VisiónIA, el detector de personas, perros y gatos.",
+        url: shareUrl,
+      };
+
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          if (shareFeedback) shareFeedback.textContent = "Enlace compartido.";
+        } else if (navigator.clipboard) {
+          await navigator.clipboard.writeText(shareUrl);
+          if (shareFeedback) shareFeedback.textContent = "Enlace copiado al portapapeles.";
+        } else {
+          const temporaryInput = document.createElement("textarea");
+          temporaryInput.value = shareUrl;
+          document.body.appendChild(temporaryInput);
+          temporaryInput.select();
+          document.execCommand("copy");
+          temporaryInput.remove();
+          if (shareFeedback) shareFeedback.textContent = "Enlace copiado al portapapeles.";
+        }
+      } catch (error) {
+        if (error.name !== "AbortError" && shareFeedback) {
+          shareFeedback.textContent = "No se pudo compartir. Inténtalo nuevamente.";
+        }
+      }
+    });
+  }
 }
 
 if (typeof Swiper !== "undefined" && document.querySelector(".swiper")) {

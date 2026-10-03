@@ -8,7 +8,7 @@
       name="description"
       content="Detector de personas, perros y gatos que funciona directamente en el navegador."
     />
-    <title>Detector inteligente | Personas, perros y gatos</title>
+    <title>Detector inteligente | VisiónIA</title>
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -19,8 +19,8 @@
     <nav aria-label="Navegación principal">
       <div class="nav__header">
         <div class="logo nav__logo">
-          <img src="img/descarga (1).png" alt="Logo de Ingeniería de Sistemas" />
-          <a href="index.html">Ing<span>Sis</span></a>
+          <img src="img/descarga (1).png" alt="Logo de VisiónIA" />
+          <a href="index.html">Visión<span>IA</span></a>
         </div>
         <div
           class="nav__menu__btn"
@@ -46,7 +46,7 @@
       <section class="detector-hero">
         <div class="detector-hero__content">
           <span class="eyebrow"><i class="ri-sparkling-2-line" aria-hidden="true"></i> Inteligencia artificial en tiempo real</span>
-          <h1>Detecta personas, perros y gatos</h1>
+          <h1>VisiónIA detecta personas, perros y gatos</h1>
           <p>
             Permite el acceso a la cámara y apunta al objeto. El análisis ocurre en tu dispositivo;
             las imágenes no se envían ni se guardan.
@@ -128,14 +128,26 @@
     </main>
 
     <footer class="detector-footer">
-      <p>Proyecto de Redes Neuronales · Ingeniería de Sistemas</p>
+      <p>VisiónIA · Proyecto de Redes Neuronales</p>
       <a href="index.html">Volver al inicio <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
     </footer>
 
     <div id="qr-modal" role="dialog" aria-modal="true" aria-label="Código QR" style="display: none;">
       <div class="qr-container">
-        <img src="img/mi_Qr_con_texto_grande_REDESNeuronales.png" alt="Código QR del proyecto" />
-        <button id="close-qr-modal" type="button">Cerrar</button>
+        <span class="qr-container__eyebrow">Comparte VisiónIA</span>
+        <h2>Lleva el detector contigo</h2>
+        <p>Escanea, guarda el código QR o comparte el enlace del proyecto.</p>
+        <img src="img/visionia-qr.png" alt="Código QR para abrir VisiónIA" />
+        <div class="qr-actions">
+          <a class="qr-button qr-button--primary" href="img/visionia-qr.png" download="VisionIA-QR.png">
+            <i class="ri-download-2-line" aria-hidden="true"></i> Guardar QR
+          </a>
+          <button class="qr-button" id="share-link" type="button">
+            <i class="ri-share-forward-line" aria-hidden="true"></i> Compartir enlace
+          </button>
+        </div>
+        <p class="share-feedback" id="share-feedback" aria-live="polite"></p>
+        <button class="qr-close" id="close-qr-modal" type="button">Cerrar</button>
       </div>
     </div>
 
